@@ -1,0 +1,13 @@
+﻿  TestFunctions.cpp
+e:\github\smartlabunittest\smartlabunittest\smartlabunittest\testfunctions.cpp(26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+e:\github\smartlabunittest\smartlabunittest\smartlabunittest\testfunctions.cpp(29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+e:\github\smartlabunittest\smartlabunittest\smartlabunittest\testfunctions.cpp(32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+e:\github\smartlabunittest\smartlabunittest\smartlabunittest\testfunctions.cpp(33): warning C4305: '+=': truncation from 'double' to 'float'
+e:\github\smartlabunittest\smartlabunittest\smartlabunittest\testfunctions.cpp(65): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+e:\github\smartlabunittest\smartlabunittest\smartlabunittest\testfunctions.cpp(70): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+e:\github\smartlabunittest\smartlabunittest\smartlabunittest\testfunctions.cpp(119): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+e:\github\smartlabunittest\smartlabunittest\smartlabunittest\testfunctions.cpp(120): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+e:\github\smartlabunittest\smartlabunittest\smartlabunittest\testfunctions.cpp(121): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+e:\github\smartlabunittest\smartlabunittest\smartlabunittest\testfunctions.cpp(122): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+  SmartLabUnitTest.vcxproj -> E:\Github\SmartLabUnitTest\SmartLabUnitTest\Debug\SmartLabUnitTest.exe
+  SmartLabUnitTest.vcxproj -> E:\Github\SmartLabUnitTest\SmartLabUnitTest\Debug\SmartLabUnitTest.pdb (Partial PDB)
