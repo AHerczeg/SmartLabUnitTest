@@ -538,6 +538,8 @@ void SensorReader::setMotion(int newMotion)
 
 void SensorReader::setMinute(int newMinute)
 {
+	if (newMinute >= 60)
+		newMinute -= 60;
 	minute = newMinute;
 }
 

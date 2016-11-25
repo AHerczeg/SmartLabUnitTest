@@ -6,6 +6,7 @@
 #include "time.h"
 
 
+
 TestFunctions::TestFunctions()
 {
 }
@@ -20,10 +21,12 @@ int TestFunctions::sensorTest()
 	printf("Sensor test started\n");
 	printf("\n    Standard values: ");
 
-	
+	clock_t begin_time = clock();
+
 	for (int temp = -10; temp < 40; temp+=5)
 	{
 		sr.setTemperature(temp);
+
 		for (int hum = 0; hum < 100; hum+=10)
 		{
 			sr.setHumidity(hum);
@@ -51,11 +54,15 @@ int TestFunctions::sensorTest()
 		}
 	}
 	
+	float duration = float(clock() - begin_time) / CLOCKS_PER_SEC;
+	
 	if (passed)
 		printf("Passed");
 	else
 		printf("Failed");
 	passed = true;
+
+	printf("\n    Time passed: %f s", duration);
 
 	printf("\n\n    Random values: ");
 
@@ -63,6 +70,8 @@ int TestFunctions::sensorTest()
 	sr.resetValues();
 
 	srand(time(NULL));
+
+	begin_time = clock();
 
 	for (int i = 0; i < 1000; i++)
 	{
@@ -86,10 +95,14 @@ int TestFunctions::sensorTest()
 		sr.resetValues();
 	}
 
+	duration = float(clock() - begin_time) / CLOCKS_PER_SEC;
+
 	if (passed)
 		printf("Passed");
 	else
 		printf("Failed");
+
+	printf("\n    Time passed: %f s", duration);
 
 	passed = true;
 
@@ -110,6 +123,8 @@ int TestFunctions::sensorTest()
 	float oldLight = 0;
 	float oldSound = 0;
 
+	begin_time = clock();
+
 	sr.loop();
 
 	for (int i = 0; i < 1000; i++)
@@ -119,7 +134,7 @@ int TestFunctions::sensorTest()
 		temp += -1.0 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (2.0)));
 		hum += -1.0 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (2.0)));
 		light += -10.0 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (20.0)));
-		sound += -10.0 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (20.0)));
+		sound += -1.0 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (2.0)));
 		
 		if (hum < 0)
 			hum = 0;
@@ -131,8 +146,8 @@ int TestFunctions::sensorTest()
 			light = 100;
 		if (sound < 0)			
 			sound = 0;
-		if (sound > 100)
-			sound = 100;
+		if (sound > 3.3)
+			sound = 3.3;
 
 		sr.setTemperature(temp);
 		sr.setHumidity(hum);
@@ -168,10 +183,14 @@ int TestFunctions::sensorTest()
 		}
 	}
 
+	duration = float(clock() - begin_time) / CLOCKS_PER_SEC;
+
 	if (passed)
 		printf("Passed");
 	else
 		printf("Failed");
+
+	printf("\n    Time passed: %f s", duration);
 
 	printf("\n\nSensor test finished\n\n");
 
@@ -187,6 +206,8 @@ int TestFunctions::regularTest()
 
 	printf("\n    Regular test: ");
 
+	clock_t begin_time = clock();
+
 	sr.setMinute(27);
 	sr.loop();
 	for (int min = 0; min < 60; min++)
@@ -198,10 +219,16 @@ int TestFunctions::regularTest()
 				counter++;
 		}
 	}
+
+	float duration = float(clock() - begin_time) / CLOCKS_PER_SEC;
+
 	if (counter == 2)
 		printf("Passed");
 	else
 		printf("Failed");
+
+	printf("\n    Time passed: %f s", duration);
+
 	printf("\n\nRegular test finished");
 
 	return 1;
